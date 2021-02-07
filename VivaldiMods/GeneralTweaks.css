@@ -1,0 +1,33 @@
+/* Remove trash and sync icons */
+.toolbar-tabbar.sync-and-trash-container {
+  display: none;
+}
+
+/* Transparent blurred OmniDropdown */
+.OmniDropdown {
+  background: #21212177;
+  backdrop-filter: blur(10px);
+}
+
+/* Remove white background behind webpanel icons */
+#switch button.webviewbtn img {
+  background-color: transparent !important;
+}
+
+/* Remove the panel left shadow */
+#panels-container.left #switch {
+  box-shadow: none !important;
+}
+
+/* Animated download panel button and colorful progress bar */
+#switch > button.downloads.in-progress .progress {background-color: black !important;}
+#switch > button.downloads.in-progress .progress .loaded:not([style='width: 0%']) {background-color: fuchsia; transition: background-color 500ms linear 0s !important;}
+#switch > button.downloads.in-progress .progress .loaded[style^='width: 2']:not([style^='width: 2.']) {background-color: darkorange;}
+#switch > button.downloads.in-progress .progress .loaded[style^='width: 3']:not([style^='width: 3.']) {background-color: orange;}
+#switch > button.downloads.in-progress .progress .loaded[style^='width: 4']:not([style^='width: 4.']) {background-color: gold;}
+#switch > button.downloads.in-progress .progress .loaded[style^='width: 5']:not([style^='width: 5.']) {background-color: yellow;}
+#switch > button.downloads.in-progress .progress .loaded[style^='width: 6']:not([style^='width: 6.']) {background-color: greenyellow;}
+#switch > button.downloads.in-progress .progress .loaded[style^='width: 7']:not([style^='width: 7.']) {background-color: lawngreen;}
+#switch > button.downloads.in-progress .progress .loaded[style^='width: 8']:not([style^='width: 8.']) {background-color: deepskyblue;}
+#switch > button.downloads.in-progress .progress .loaded[style^='width: 9']:not([style^='width: 9.']) {background-color: cyan;}
+#switch > button.downloads .progress .loaded[style^='width: 100'] {background-color: lightcyan !important;}
