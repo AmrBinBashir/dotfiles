@@ -1,0 +1,104 @@
+/* 
+  Copyright © Blacksuan19 @ 2020 
+  part of material ocean colorscheme
+  licensed under GNU's GPL 3
+*/
+
+* {
+  background: rgba(15,17,26,75%);
+  foreground: #f1f1f1;
+  selected: rgba(255,65,81,75%);
+  transparent: rgba(0,0,0,0);
+}
+
+window {
+  transparency: "real";
+  background-color: @transparent;
+  text-color: @foreground;
+}
+
+prompt {
+  enabled: true;
+  padding: 4px 4px 6px 6px;
+  text-color: @foreground;
+  background-color: @transparent;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  background-color: @transparent;
+  padding: 4px 0px 0px 6px;
+}
+
+inputbar {
+  children: [ textbox-prompt-colon, entry ];
+  text-color: @foreground;
+  background-color: @transparent;
+  expand: false;
+  border: 0px 0px 0px 0px;
+  border-radius: 0px;
+  border-color: @selected;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 4px 0px;
+  position: center;
+}
+
+entry {
+  background-color: @transparent;
+  text-color: @foreground;
+  placeholder-color: @foreground;
+  expand: true;
+  horizontal-align: 0;
+  blink: true;
+  padding: 4px 0px 0px 4px;
+}
+
+case-indicator {
+  background-color: @background;
+  text-color: @foreground;
+  spacing: 0;
+}
+
+listview {
+  background-color: @transparent;
+  columns: 1;
+  spacing: 5px;
+  cycle: true;
+  dynamic: true;
+  layout: vertical;
+}
+
+mainbox {
+  background-color: @background;
+  children: [ inputbar, listview ];
+  spacing: 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+element {
+  background-color: @transparent;
+  text-color: @foreground;
+  orientation: horizontal;
+  border-radius: 4px;
+  padding: 6px 6px 6px 6px;
+}
+
+element-icon {
+  size: 18px;
+  border: 0px;
+}
+
+element-text {
+  expand: true;
+  horizontal-align: 0;
+  vertical-align: 0;
+  margin: 2px 0px 2px 2px;
+}
+
+element selected {
+  background-color: @selected;
+  text-color: @background;
+  border: 0px;
+  border-radius: 0px;
+  border-color: @selected;
+}
