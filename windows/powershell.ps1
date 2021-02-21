@@ -45,7 +45,7 @@ function Projects { Set-Location "D:/Development/Projects" }
 function RefreshEnvs { $env:path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User") }
 function Vim { nvim $args }
 function Touch { New-Item $args }
-function CommitDate { git commit -m (Get-Date -UFormat '%D %I:%M %p') }
+function Commit-Date { git commit -m (Get-Date -UFormat '%D %I:%M %p') }
 
 If (-Not (Test-Path Variable:PSise)) {
     # Only run this in the console and not in the ISE

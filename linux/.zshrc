@@ -30,8 +30,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH=$HOME/.cargo/bin:$PATH
 
-source ~/.xprofile
-
 ################################################
 #                   Aliases                    #
 ################################################
@@ -39,12 +37,7 @@ alias cls="clear"
 alias ls="ls --color=auto"
 alias lsa="ls -lha --group-directories-first"
 alias pacman="sudo pacman"
-
-# VirtualBox aliases
-alias hd-res="xrandr -s 1920x1080"
-alias auto-res="VBoxClient --vmsvga"
-
-
-
-#############3
+alias vim="nvim"
+alias commit-date="date +'%d/%m/%y %I:%M %p' | git commit -F -"
+#############
 eval "$(starship init zsh)"

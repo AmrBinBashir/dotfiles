@@ -1,4 +1,5 @@
 configuration {
+  modi: "window,run,drun";  
   show-icons: true;
   hide-scrollbar: true;
   theme: "~/.config/rofi/material-ocean.rasi";

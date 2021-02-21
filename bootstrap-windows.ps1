@@ -205,7 +205,7 @@ function CreateConfigsSymlink {
     Copy-Item -Path "$PWD/windows/notepad++/themes/*" -Destination "$ENV:APPDATA/Notepad++/themes" -Recurse -Force;
     $notepadplusplusConfig = "$ENV:APPDATA/Notepad++/config.xml";
     Remove-Item $notepadplusplusConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $notepadplusplusConfig -Target "$PWD/windows/notepad++/notepad++.xml";
+    New-Item -ItemType SymbolicLink -Path $notepadplusplusConfig -Target "$PWD/windows/notepad++/config.xml";
     Write-Host "    ✅ Notepad++" -ForegroundColor Green;
 
     $trafficMonitorConfig = "$ENV:APPDATA/TrafficMonitor/config.ini";
