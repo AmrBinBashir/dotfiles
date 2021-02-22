@@ -33,6 +33,10 @@ CreateConfigsSymlink () {
     ln -sf $PWD/linux/rofi $HOME/.config/rofi
     printf "${Green}    ✅ Rofi \n"
 
+    sudo rm /etc/paru.conf -f
+    sudo ln -sf $PWD/linux/paru.conf /etc/paru.conf
+    printf "${Green}    ✅ Paru \n"
+
     mkdir -p $HOME/.config/nvim
     rm $HOME/.config/nvim/init.vim -f
     ln -sf $PWD/shared/neovim.vim $HOME/.config/nvim/init.vim
@@ -46,6 +50,7 @@ CreateConfigsSymlink () {
     rm $HOME/.gitconfig
     ln -sf $PWD/shared/.gitconfig $HOME/.gitconfig
     printf "${Green}    ✅ .gitconfig \n"
+
 }
 
 CreateConfigsSymlink

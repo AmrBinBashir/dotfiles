@@ -7,6 +7,8 @@ alt + space
 super + r
 	rofi -show run
 super + space
-	dbus-send --dest=ru.gentoo.KbddService /ru/gentoo/KbddService ru.gentoo.kbdd.set_layout uint32:0i
+	(setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ar || setxkbmap us
 alt + l
 	dm-tool lock
+super + shift + s
+	flameshot gui
