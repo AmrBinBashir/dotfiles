@@ -1,11 +1,11 @@
-/* 
-  Copyright © Blacksuan19 @ 2020 
+/*
+  Copyright © Blacksuan19 @ 2020
   part of material ocean colorscheme
   licensed under GNU's GPL 3
 */
 
 * {
-  background: rgba(15,17,26,75%);
+  background: rgba(15,17,26,85%);
   foreground: #f1f1f1;
   selected: rgba(255,65,81,75%);
   transparent: rgba(0,0,0,0);

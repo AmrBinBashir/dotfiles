@@ -1,7 +1,6 @@
 configuration {
-  modi: "window,run,drun";  
-  show-icons: true;
-  hide-scrollbar: true;
-  theme: "~/.config/rofi/material-ocean.rasi";
+  modi: "window,run,drun";
+  theme: "~/.config/rofi/docky.rasi";
   kb-cancel: "Escape,Alt+F1";
 }
+

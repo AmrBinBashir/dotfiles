@@ -52,6 +52,11 @@ CreateConfigsSymlink () {
     ln -sf $PWD/shared/.gitconfig $HOME/.gitconfig
     printf "${Green}    ✅ .gitconfig \n"
 
+    mkdir -p $HOME/.config/polybar
+    rm $HOME/.config/polybar -rf
+    ln -sf $PWD/linux/polybar $HOME/.config/polybar
+    printf "${Green}    ✅ Polybar \n"
+
 }
 
 CreateConfigsSymlink
