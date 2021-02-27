@@ -3,6 +3,8 @@ Cyan='\033[0;36m'
 Green='\033[0;32m'
 CreateConfigsSymlink () {
     printf "${Cyan} - Creating symlinks for config files...\n";
+    mkdir -p $HOME/.config
+
 
     mkdir -p $HOME/.config/kitty
     rm $HOME/.config/kitty/kitty.conf -f
@@ -19,22 +21,22 @@ CreateConfigsSymlink () {
     ln -sf $PWD/linux/picom.conf $HOME/.config/picom/picom.conf
     printf "${Green}    ✅ Picom \n"
 
-    mkdir -p $HOME/.config/qtile
-    rm $HOME/.config/qtile/config.py -f
-    ln -sf $PWD/linux/qtile.py $HOME/.config/qtile/config.py
-    printf "${Green}    ✅ Qtile \n"
-
     rm $HOME/.zshrc
     ln -sf $PWD/linux/.zshrc $HOME/.zshrc
     printf "${Green}    ✅ Zsh \n"
+
+    rm $HOME/.config/awesome -rf
+    ln -sf $PWD/linux/awesome $HOME/.config/awesome
+    printf "${Green}    ✅ AwesomeWM \n"
 
     mkdir -p $HOME/.config/rofi
     rm $HOME/.config/rofi -rf
     ln -sf $PWD/linux/rofi $HOME/.config/rofi
     printf "${Green}    ✅ Rofi \n"
 
-    sudo rm /etc/paru.conf -f
-    sudo ln -sf $PWD/linux/paru.conf /etc/paru.conf
+    mkdir -p $HOME/.config/paru
+    sudo rm $HOME/.config/paru/paru.conf -rf
+    sudo ln -sf $PWD/linux/paru.conf $HOME/.config/paru/paru.conf
     printf "${Green}    ✅ Paru \n"
 
     mkdir -p $HOME/.config/nvim
@@ -42,7 +44,6 @@ CreateConfigsSymlink () {
     ln -sf $PWD/shared/neovim.vim $HOME/.config/nvim/init.vim
     printf "${Green}    ✅ Neovim \n"
 
-    mkdir -p $HOME/.config
     rm $HOME/.config/starship.toml -f
     ln -sf $PWD/shared/starship.toml $HOME/.config/starship.toml
     printf "${Green}    ✅ Starship \n"
