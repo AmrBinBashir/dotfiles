@@ -57,6 +57,11 @@ CreateConfigsSymlink () {
     ln -sf $PWD/linux/polybar $HOME/.config/polybar
     printf "${Green}    ✅ Polybar \n"
 
+    mkdir -p $HOME/.config/spicetify
+    rm $HOME/.config/spicetify/config.ini -f
+    ln -sf $PWD/linux/spicetify-cli.ini $HOME/.config/spicetify/config.ini
+    printf "${Green}    ✅ Spicetify \n"
+
 }
 
 CreateConfigsSymlink

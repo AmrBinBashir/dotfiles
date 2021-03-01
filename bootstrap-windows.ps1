@@ -177,7 +177,7 @@ function CreateConfigsSymlink {
 
     $spicetifyConfig = "$HOME/.spicetify/config.ini";
     Remove-Item $spicetifyConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $spicetifyConfig -Target "$PWD/shared/spicetify-cli.ini";
+    New-Item -ItemType SymbolicLink -Path $spicetifyConfig -Target "$PWD/windows/spicetify-cli.ini";
     Write-Host "    ✅ Spicetify" -ForegroundColor Green;
 
     $gitConfig = "$HOME/.gitconfig";

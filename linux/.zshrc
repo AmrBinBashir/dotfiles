@@ -23,6 +23,8 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$HOME/.cargo/bin:$PATH
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITRO="nvim"
+export SPICETIFY_INSTALL="/home/amr/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
 
 ################################################
 #                   Aliases                    #

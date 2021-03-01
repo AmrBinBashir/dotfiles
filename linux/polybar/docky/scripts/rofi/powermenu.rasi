@@ -7,6 +7,8 @@
  *
  */
 
+
+
 configuration {
 	font:							"Terminus 9";
     show-icons:                     true;

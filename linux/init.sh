@@ -10,4 +10,5 @@ sxhkd &
 nm-applet &
 xinput set-prop "SynPS/2 Synaptics TouchPad" 339 1 &
 xinput set-prop "SynPS/2 Synaptics TouchPad" 319 1 &
-sh ~/.config/polybar/launch.sh --docky &
+sh ~/.config/polybar/launch.sh &
+spotify-tray -m &

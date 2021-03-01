@@ -149,7 +149,14 @@ clientkeys = gears.table.join(
                 c:raise()
             end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({modkey}, "q", function(c) c:kill() end,
+    awful.key({modkey}, "q",
+            function(c)
+                if c.class == "Spotify" then
+                    awful.spawn("spotify-tray -t")
+                else
+                    c:kill()
+                end
+            end,
         {description = "close",group = "client"}),
     awful.key({modkey, "Control"}, "space", awful.client.floating.toggle,
         {description = "toggle floating", group = "client"}),
@@ -289,13 +296,18 @@ end)
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
-    local buttons = gears.table.join(awful.button({}, 1, function()
-        c:emit_signal("request::activate", "titlebar", {raise = true})
-        awful.mouse.client.move(c)
-    end), awful.button({}, 3, function()
-        c:emit_signal("request::activate", "titlebar", {raise = true})
+    local buttons = gears.table.join(
+        awful.button({}, 1,
+        function()
+            c:emit_signal("request::activate", "titlebar", {raise = true})
+            awful.mouse.client.move(c)
+        end),
+        awful.button({}, 3,
+        function()
+            c:emit_signal("request::activate", "titlebar", {raise = true})
         awful.mouse.client.resize(c)
-    end))
+        end)
+    )
 
     awful.titlebar(c):setup{
         { -- Left
