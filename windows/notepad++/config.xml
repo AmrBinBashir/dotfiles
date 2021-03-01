@@ -2,23 +2,23 @@
 <NotepadPlus>
     <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" isSearch2ButtonsMode="no" regexBackward4PowerUser="no" />
     <History nbMaxFile="10" inSubMenu="no" customLength="-1">
-        <File filename="D:\Development\Projects\rustlings\exercises\if\if1.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\quiz1.rs" />
         <File filename="D:\Development\Projects\rustlings\exercises\move_semantics\move_semantics1.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\move_semantics\move_semantics2.rs" />
-        <File filename="C:\Users\amrba\AppData\Roaming\GWSL\settings.json" />
-        <File filename="D:\Development\Projects\rustlings\exercises\move_semantics\move_semantics4.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\move_semantics\move_semantics3.rs" />
-        <File filename="C:\Users\amrba\Documents\PowerShell\powershell.config.json" />
-        <File filename="C:\Users\amrba\dotfiles\shared\neovim.vim" />
-        <File filename="C:\Users\amrba\AppData\Local\nvim\init.vim" />
+        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types1.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types2.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types3.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types4.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types5.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types6.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\structs\structs2.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\structs\structs1.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\structs\structs3.rs" />
     </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />
         <ProjectPanel id="1" workSpaceFile="" />
         <ProjectPanel id="2" workSpaceFile="" />
     </ProjectPanels>
-    <FileBrowser latestSelectedItem="D:\Development\Projects\rustlings\exercises\move_semantics">
+    <FileBrowser latestSelectedItem="D:\Development\Projects\rustlings\exercises\structs">
         <root foldername="D:\Development\Projects\rustlings" />
     </FileBrowser>
     <GUIConfigs>
@@ -67,8 +67,8 @@
         <GUIConfig name="SmartHighLight" matchCase="no" wholeWordOnly="yes" useFindSettings="no" onAnotherView="no">yes</GUIConfig>
         <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" lineNumberDynamicWidth="yes" bookMarkMargin="show" indentGuideLine="show" folderMarkStyle="box" lineWrapMethod="aligned" currentLineHilitingShow="show" scrollBeyondLastLine="yes" rightClickKeepsSelection="no" disableAdvancedScrolling="no" wrapSymbolShow="hide" Wrap="no" borderEdge="yes" isEdgeBgMode="no" edgeMultiColumnPos="" zoom="0" zoom2="0" whiteSpaceShow="hide" eolShow="hide" borderWidth="2" smoothFont="no" />
         <GUIConfig name="DockingManager" leftWidth="200" rightWidth="200" topHeight="200" bottomHeight="200">
-            <PluginDlg pluginName="Notepad++::InternalFunction" id="44085" curr="0" prev="-1" isVisible="no" />
-            <ActiveTabs cont="0" activeTab="-1" />
+            <PluginDlg pluginName="Notepad++::InternalFunction" id="44085" curr="0" prev="-1" isVisible="yes" />
+            <ActiveTabs cont="0" activeTab="0" />
             <ActiveTabs cont="1" activeTab="-1" />
             <ActiveTabs cont="2" activeTab="-1" />
             <ActiveTabs cont="3" activeTab="-1" />

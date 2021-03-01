@@ -132,8 +132,8 @@ function InstallFonts {
     scoop install FiraCode --global;
     Write-Host "    ✅ FiraCode" -ForegroundColor Green;
 
-    scoop install Meslo-NF --global;
-    Write-Host "    ✅ Meslo-NF" --global; -ForegroundColor Green;
+    scoop install FiraCode-NF --global;
+    Write-Host "    ✅ FiraCode-NF" --global; -ForegroundColor Green;
 
 }
 
