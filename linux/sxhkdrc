@@ -2,7 +2,7 @@
 super + Return
 	kitty
 
-# Swap between open windows
+# Switch between open windows
 alt + Tab
 	rofi -show window
 
@@ -20,17 +20,19 @@ super + space
 
 # Lock screen
 alt + l
-	dm-tool lock
+	dm-tool switch-to-greeter
 
 # Take a screen shot
 super + shift + s
 	flameshot gui
 
+# Increase/Decrease volume
 KP_Add
 	amixer set Master 2%+
 KP_Subtract
 	amixer set Master 2%-
 
+# Media Controls
 Next
 	playerctl next
 Prior

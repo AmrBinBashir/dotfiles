@@ -151,6 +151,7 @@ clientkeys = gears.table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({modkey}, "q",
             function(c)
+                -- Minimizes spotify to tray rather than closing it
                 if c.class == "Spotify" then
                     awful.spawn("spotify-tray -t")
                 else

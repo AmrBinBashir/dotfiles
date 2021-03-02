@@ -20,7 +20,7 @@ configuration {
 }
 * {
 	  al:   #00000000;
-	  bg:   #1F1F1FD9;
+	  bg:   #1F1F1FBF;
 	  bga:  #5e35b133;
 	  bar:  #FFFFFFFF;
 	  fg:   #FFFFFFFF;
