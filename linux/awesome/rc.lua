@@ -174,25 +174,32 @@ clientkeys = gears.table.join(
         {description = "(un)maximize", group = "client"})
 )
 
-function on_view_workspace()
+function update_awesomewm_workspaces_for_polybar()
     local tags = awful.screen.focused().tags
     local args = ""
+
     for _,v in pairs(tags) do
         args = args..v.name
         if next(v:clients()) == nil then
-            args = args.." empty"
+            args = args.."-empty"
         else
-            args = args.." full"
+            -- If the first workspace has only polybar then count it as empty
+            if (v.name == "1" and #v:clients() == 1 and v:clients()[1].class == "Polybar") then
+                args = args.."-empty"
+            else
+                args = args.."-full"
+            end
+
         end
 
         if v.selected  then
-            args = args.." active\n"
+            args = args.."-active/"
         else
-            args = args.." inactive\n"
+            args = args.."-inactive/"
         end
     end
-    awful.spawn.with_shell("echo -e '"..args.."' > /tmp/.awesomewm-workspaces-data")
-    awful.spawn.with_shell("python $HOME/dotfiles/linux/polybar/scripts/update-awesomewm-workspaces.py")
+
+    awful.spawn.with_shell("python $HOME/dotfiles/linux/polybar/scripts/polybar-awesomewm-workspaces.py "..args)
 end
 
 -- Bind all key numbers to workspaces/tags.
@@ -206,7 +213,7 @@ for i = 1, 9 do
                 local screen = awful.screen.focused()
                 local tag = screen.tags[i]
                 if tag then tag:view_only() end
-                on_view_workspace()
+                update_awesomewm_workspaces_for_polybar()
             end,
         {description = "view tag #" .. i, group = "tag"}),
 
