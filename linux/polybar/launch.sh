@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DIR="$HOME/.config/polybar/docky"
+DIR="~/.config/polybar/docky"
 
 killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done

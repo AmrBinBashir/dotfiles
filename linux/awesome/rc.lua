@@ -153,7 +153,7 @@ clientkeys = gears.table.join(
             function(c)
                 -- Minimizes spotify to tray rather than closing it
                 if c.class == "Spotify" then
-                    awful.spawn("spotify-tray -t")
+                    awful.spawn.with_shell("spotify-tray -t")
                 else
                     c:kill()
                 end
@@ -174,6 +174,27 @@ clientkeys = gears.table.join(
         {description = "(un)maximize", group = "client"})
 )
 
+function on_view_workspace()
+    local tags = awful.screen.focused().tags
+    local args = ""
+    for _,v in pairs(tags) do
+        args = args..v.name
+        if next(v:clients()) == nil then
+            args = args.." empty"
+        else
+            args = args.." full"
+        end
+
+        if v.selected  then
+            args = args.." active\n"
+        else
+            args = args.." inactive\n"
+        end
+    end
+    awful.spawn.with_shell("echo -e '"..args.."' > /tmp/.awesomewm-workspaces-data")
+    awful.spawn.with_shell("python $HOME/dotfiles/linux/polybar/scripts/update-awesomewm-workspaces.py")
+end
+
 -- Bind all key numbers to workspaces/tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
@@ -185,6 +206,7 @@ for i = 1, 9 do
                 local screen = awful.screen.focused()
                 local tag = screen.tags[i]
                 if tag then tag:view_only() end
+                on_view_workspace()
             end,
         {description = "view tag #" .. i, group = "tag"}),
 
@@ -272,6 +294,10 @@ awful.rules.rules = {
     {
         rule_any = {type = {"dialog"}},
         properties = {titlebars_enabled = true}
+    },
+    {
+        rule_any = { class = {"Polybar"}},
+        properties = { focusable = false }
     }
 }
 -- }}}
@@ -337,6 +363,11 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 --
+
+-- Hotkeys Popup styling
+beautiful.hotkeys_modifiers_fg = "#5E35B1"
+beautiful.hotkeys_font = "Droid 10"
+beautiful.hotkeys_description_font = "Droid 10"
 
 -- Set gaps between windows/clients
 beautiful.useless_gap = 5
