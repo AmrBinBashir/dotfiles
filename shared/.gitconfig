@@ -1,7 +1,6 @@
 [user]
 	email = 48618675+amrbashir@users.noreply.github.com
 	name = amrbashir
-	signingkey = DD0EC2C08F2158F1
 [alias]
 	lg = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]

@@ -35,8 +35,8 @@ CreateConfigsSymlink () {
     printf "${Green}    ✅ Rofi \n"
 
     mkdir -p $HOME/.config/paru
-    sudo rm $HOME/.config/paru/paru.conf -rf
-    sudo ln -sf $PWD/linux/paru.conf $HOME/.config/paru/paru.conf
+    rm $HOME/.config/paru/paru.conf -rf
+    ln -sf $PWD/linux/paru.conf $HOME/.config/paru/paru.conf
     printf "${Green}    ✅ Paru \n"
 
     mkdir -p $HOME/.config/nvim
@@ -61,6 +61,10 @@ CreateConfigsSymlink () {
     rm $HOME/.config/spicetify/config.ini -f
     ln -sf $PWD/linux/spicetify-cli.ini $HOME/.config/spicetify/config.ini
     printf "${Green}    ✅ Spicetify \n"
+
+    rm $HOME/.xprofile -f
+    ln -sf $PWD/linux/.xprofile $HOME/.xprofile
+    printf "${Green}    ✅ .xprofile \n"
 
 }
 

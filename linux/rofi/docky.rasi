@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"Droid 10";
+	font:							"Cantarell 11";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";

@@ -21,7 +21,7 @@
     sort = yes
     idle_threshold = 120
 
-    font = Droid 8
+    font = Cantarell 8
     line_height = 0
     markup = full
     format = "%a\n<b>%s</b>\n%b"

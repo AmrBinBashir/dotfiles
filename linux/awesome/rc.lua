@@ -5,19 +5,15 @@ pcall(require, "luarocks.loader")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-require("awful.autofocus")
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
 -- local naughty = require("naughty")
-local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
-
-
 
 -- {{{ Error handling
 --
@@ -48,7 +44,6 @@ end
 -- }}}
 
 
-
 -- {{{ Variable definitions
 --
 terminal = "kitty"
@@ -72,6 +67,15 @@ awful.screen.connect_for_each_screen(
         awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
     end
 )
+-- }}}
+
+
+-- {{{ Mouse bindings
+root.buttons(gears.table.join(
+    awful.button({ }, 3, function () mymainmenu:toggle() end),
+    awful.button({ }, 4, awful.tag.viewnext),
+    awful.button({ }, 5, awful.tag.viewprev)
+))
 -- }}}
 
 
@@ -174,34 +178,6 @@ clientkeys = gears.table.join(
         {description = "(un)maximize", group = "client"})
 )
 
-function update_awesomewm_workspaces_for_polybar()
-    local tags = awful.screen.focused().tags
-    local args = ""
-
-    for _,v in pairs(tags) do
-        args = args..v.name
-        if next(v:clients()) == nil then
-            args = args.."-empty"
-        else
-            -- If the first workspace has only polybar then count it as empty
-            if (v.name == "1" and #v:clients() == 1 and v:clients()[1].class == "Polybar") then
-                args = args.."-empty"
-            else
-                args = args.."-full"
-            end
-
-        end
-
-        if v.selected  then
-            args = args.."-active/"
-        else
-            args = args.."-inactive/"
-        end
-    end
-
-    awful.spawn.with_shell("python $HOME/dotfiles/linux/polybar/scripts/polybar-awesomewm-workspaces.py "..args)
-end
-
 -- Bind all key numbers to workspaces/tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
@@ -213,7 +189,6 @@ for i = 1, 9 do
                 local screen = awful.screen.focused()
                 local tag = screen.tags[i]
                 if tag then tag:view_only() end
-                update_awesomewm_workspaces_for_polybar()
             end,
         {description = "view tag #" .. i, group = "tag"}),
 
@@ -280,9 +255,16 @@ awful.rules.rules = {
                 "pinentry"
             },
             class = {
-                "Arandr", "Blueman-manager", "Gpick", "Kruler", "MessageWin", -- kalarm.
-                "Sxiv", "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-                "Wpa_gui", "veromix", "xtightvncviewer"
+                "Arandr",
+                "Blueman-manager",
+                "Gpick",
+                "Kruler",
+                "MessageWin", -- kalarm.
+                "Sxiv",
+                "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+                "Wpa_gui",
+                "veromix",
+                "xtightvncviewer"
             },
 
             -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -304,7 +286,7 @@ awful.rules.rules = {
     },
     {
         rule_any = { class = {"Polybar"}},
-        properties = { focusable = false }
+        properties = { focusable = false,   ontop = true }
     }
 }
 -- }}}
@@ -373,8 +355,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Hotkeys Popup styling
 beautiful.hotkeys_modifiers_fg = "#5E35B1"
-beautiful.hotkeys_font = "Droid 10"
-beautiful.hotkeys_description_font = "Droid 10"
+beautiful.hotkeys_font = "Cantarell 10"
+beautiful.hotkeys_description_font = "Cantarell 10"
 
 -- Set gaps between windows/clients
 beautiful.useless_gap = 5
