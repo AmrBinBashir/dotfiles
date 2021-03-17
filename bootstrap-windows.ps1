@@ -129,11 +129,13 @@ function InstallApps {
 function InstallFonts {
     Write-Host "- Installing Fonts..." -ForegroundColor Cyan;
 
+
     scoop install FiraCode --global;
     Write-Host "    ✅ FiraCode" -ForegroundColor Green;
 
     scoop install FiraCode-NF --global;
     Write-Host "    ✅ FiraCode-NF" --global; -ForegroundColor Green;
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont' -Name '000' -Value 'FiraCode NF'; # a fix for Terminal-Icons module
 
 }
 

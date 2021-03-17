@@ -14,7 +14,7 @@
     "defaults": {
       "useAcrylic": true,
       "acrylicOpacity": 0.5,
-      "fontFace": "MesloLGS NF",
+      "fontFace": "FiraCode NF",
       "fontSize": 9,
       "colorScheme": "Dracula",
       "startingDirectory": "D:\\Development\\Projects"

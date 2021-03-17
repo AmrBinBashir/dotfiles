@@ -1,8 +1,6 @@
 using namespace Microsoft.PowerShell;
 
 #region Imports
-# Chocolatey profile
-Import-Module Get-ChildItemColor
 Import-Module posh-git
 Import-Module Terminal-Icons
 Import-Module 'C:\Users\amrba\AppData\Roaming\vcpkg\scripts\posh-vcpkg'
@@ -40,15 +38,17 @@ Set-PSReadLineKeyHandler -Key Ctrl+UpArrow -BriefDescription GoBack -LongDescrip
 }
 #enregion
 
-#region Aliases and Functions
-function Projects { Set-Location "D:/Development/Projects" }
-function RefreshEnvs { $env:path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User") }
-function Vim { nvim $args }
-function Touch { New-Item $args }
-function Commit-Date { git commit -m (Get-Date -UFormat '%D %I:%M %p') }
+#region private functions
+function __ls { Get-ChildItem | Format-Wide };
+function __commit_date { git commit -m (Get-Date -UFormat '%D %I:%M %p') };
+function __refresh_envs { $env:path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User") };
+#endregion
 
-If (-Not (Test-Path Variable:PSise)) {
-    # Only run this in the console and not in the ISE
-    Set-Alias lsa Get-ChildItem -Option AllScope
-}
+#region Aliases
+Set-Alias vim nvim;
+Set-Alias touch New-Item;
+Set-Alias ls __ls;
+Set-Alias lsa  Get-ChildItem;
+Set-Alias commit-date __commit_date;
+Set-Alias refresh-envs __refresh_envs;
 #endregion

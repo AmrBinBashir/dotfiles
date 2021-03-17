@@ -2,9 +2,6 @@
 <NotepadPlus>
     <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" isSearch2ButtonsMode="no" regexBackward4PowerUser="no" />
     <History nbMaxFile="10" inSubMenu="no" customLength="-1">
-        <File filename="D:\Development\Projects\rustlings\exercises\move_semantics\move_semantics1.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types1.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types2.rs" />
         <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types3.rs" />
         <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types4.rs" />
         <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types5.rs" />
@@ -12,6 +9,9 @@
         <File filename="D:\Development\Projects\rustlings\exercises\structs\structs2.rs" />
         <File filename="D:\Development\Projects\rustlings\exercises\structs\structs1.rs" />
         <File filename="D:\Development\Projects\rustlings\exercises\structs\structs3.rs" />
+        <File filename="C:\Users\amrba\AppData\Roaming\XBar\xbar.toml" />
+        <File filename="C:\Program Files\WindowsApps\28017CharlesMilette.TranslucentTB_9.0.0.0_x86__v826wp6bftszj\resources.pri" />
+        <File filename="C:\Users\amrba\dotfiles\windows\windows-terminal.json" />
     </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />
@@ -31,7 +31,7 @@
         <GUIConfig name="AppPosition" x="777" y="49" width="1100" height="700" isMaximized="no" />
         <GUIConfig name="FindWindowPosition" left="0" top="0" right="0" bottom="0" />
         <GUIConfig name="FinderConfig" wrappedLines="no" />
-        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20210222">no</GUIConfig>
+        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20210318">no</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
         <GUIConfig name="CheckHistoryFiles">no</GUIConfig>
         <GUIConfig name="TrayIcon">no</GUIConfig>
