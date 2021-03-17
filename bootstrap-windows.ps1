@@ -135,7 +135,6 @@ function InstallFonts {
 
     scoop install FiraCode-NF --global;
     Write-Host "    ✅ FiraCode-NF" --global; -ForegroundColor Green;
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont' -Name '000' -Value 'FiraCode NF'; # a fix for Terminal-Icons module
 
 }
 
@@ -146,9 +145,6 @@ function InstallPowerShellModules {
         Install-Module -Name PowerShellGetGet -Force;
         Write-Host "    ✅ PowerShellGet" -ForegroundColor Green;
     }
-
-    Install-Module -AllowClobber Get-ChildItemColor;
-    Write-Host "    ✅ Get-CHildItemColor" -ForegroundColor Green;
 
     pwsh -Noprofile -Command "Install-Module PSReadLine -Force -SkipPublisherCheck -AllowPrerelease";
     Write-Host "    ✅ PSReadLine" -ForegroundColor Green;
@@ -184,7 +180,7 @@ function CreateConfigsSymlink {
 
     $gitConfig = "$HOME/.gitconfig";
     Remove-Item $gitConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $gitConfig -Target "$PWD/shared/.gitconfig";
+    New-Item -ItemType SymbolicLink -Path $gitConfig -Target "$PWD/windows/.gitconfig";
     Write-Host "    ✅ .gitconfig" -ForegroundColor Green;
 
     $npmrc = "$HOME/.npmrc";
