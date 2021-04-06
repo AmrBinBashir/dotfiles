@@ -1,9 +1,0 @@
-[user]
-	email = 48618675+amrbashir@users.noreply.github.com
-	name = amrbashir
-[alias]
-	lg = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-[core]
-	autocrlf = input
-[commit]
-	gpgsign = true

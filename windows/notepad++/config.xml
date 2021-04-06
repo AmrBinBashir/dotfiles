@@ -2,23 +2,23 @@
 <NotepadPlus>
     <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" isSearch2ButtonsMode="no" regexBackward4PowerUser="no" />
     <History nbMaxFile="10" inSubMenu="no" customLength="-1">
-        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types3.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types4.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types5.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\primitive_types\primitive_types6.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\structs\structs2.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\structs\structs1.rs" />
-        <File filename="D:\Development\Projects\rustlings\exercises\structs\structs3.rs" />
-        <File filename="C:\Users\amrba\AppData\Roaming\XBar\xbar.toml" />
-        <File filename="C:\Program Files\WindowsApps\28017CharlesMilette.TranslucentTB_9.0.0.0_x86__v826wp6bftszj\resources.pri" />
-        <File filename="C:\Users\amrba\dotfiles\windows\windows-terminal.json" />
+        <File filename="D:\Development\Projects\rustlings\exercises\error_handling\errorsn.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\generics\generics1.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\generics\generics2.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\generics\generics3.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\option\option1.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\standard_library_types\arc1.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\error_handling\result1.rs" />
+        <File filename="D:\Development\Projects\rustlings\exercises\option\option2.rs" />
+        <File filename="C:\Users\amrba\Downloads\key-sender.jar" />
+        <File filename="C:\Users\amrba\Downloads\main.rs" />
     </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />
         <ProjectPanel id="1" workSpaceFile="" />
         <ProjectPanel id="2" workSpaceFile="" />
     </ProjectPanels>
-    <FileBrowser latestSelectedItem="D:\Development\Projects\rustlings\exercises\structs">
+    <FileBrowser latestSelectedItem="D:\Development\Projects\rustlings\exercises\variables">
         <root foldername="D:\Development\Projects\rustlings" />
     </FileBrowser>
     <GUIConfigs>
@@ -31,7 +31,7 @@
         <GUIConfig name="AppPosition" x="777" y="49" width="1100" height="700" isMaximized="no" />
         <GUIConfig name="FindWindowPosition" left="0" top="0" right="0" bottom="0" />
         <GUIConfig name="FinderConfig" wrappedLines="no" />
-        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20210318">no</GUIConfig>
+        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20210402">no</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
         <GUIConfig name="CheckHistoryFiles">no</GUIConfig>
         <GUIConfig name="TrayIcon">no</GUIConfig>

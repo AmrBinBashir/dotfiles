@@ -47,7 +47,7 @@ function __refresh_envs { $env:path = [System.Environment]::GetEnvironmentVariab
 #region Aliases
 Set-Alias vim nvim;
 Set-Alias touch New-Item;
-Set-Alias ls __ls;
+Set-Alias ls __ls -Option AllScope;
 Set-Alias lsa  Get-ChildItem;
 Set-Alias commit-date __commit_date;
 Set-Alias refresh-envs __refresh_envs;

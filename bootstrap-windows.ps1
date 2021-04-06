@@ -180,7 +180,7 @@ function CreateConfigsSymlink {
 
     $gitConfig = "$HOME/.gitconfig";
     Remove-Item $gitConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $gitConfig -Target "$PWD/windows/.gitconfig";
+    New-Item -ItemType SymbolicLink -Path $gitConfig -Target "$PWD/shared/.gitconfig";
     Write-Host "    ✅ .gitconfig" -ForegroundColor Green;
 
     $npmrc = "$HOME/.npmrc";

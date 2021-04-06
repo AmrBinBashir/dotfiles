@@ -49,7 +49,7 @@ CreateConfigsSymlink () {
     printf "${Green}    ✅ Starship \n"
 
     rm $HOME/.gitconfig
-    ln -sf $PWD/linux/.gitconfig $HOME/.gitconfig
+    ln -sf $PWD/shared/.gitconfig $HOME/.gitconfig
     printf "${Green}    ✅ .gitconfig \n"
 
     mkdir -p $HOME/.config/polybar
