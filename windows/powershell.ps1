@@ -39,7 +39,7 @@ Set-PSReadLineKeyHandler -Key Ctrl+UpArrow -BriefDescription GoBack -LongDescrip
 #enregion
 
 #region private functions
-function __ls { Get-ChildItem | Format-Wide };
+function __ls { Get-ChildItem $args | Format-Wide };
 function __commit_date { git commit -m (Get-Date -UFormat '%D %I:%M %p') };
 function __refresh_envs { $env:path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User") };
 #endregion

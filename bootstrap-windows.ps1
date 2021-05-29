@@ -173,7 +173,7 @@ function CreateConfigsSymlink {
     New-Item -ItemType SymbolicLink -Path $windowsTerminalSettings -Target "$PWD/windows/windows-terminal.json";
     Write-Host "    ✅ Windows Terminal" -ForegroundColor Green;
 
-    $spicetifyConfig = "$HOME/.spicetify/config.ini";
+    $spicetifyConfig = "$HOME/.spicetify/config-xpui.ini";
     Remove-Item $spicetifyConfig -Force;
     New-Item -ItemType SymbolicLink -Path $spicetifyConfig -Target "$PWD/windows/spicetify-cli.ini";
     Write-Host "    ✅ Spicetify" -ForegroundColor Green;
@@ -188,13 +188,6 @@ function CreateConfigsSymlink {
     New-Item -ItemType SymbolicLink -Path $npmrc -Target "$PWD/windows/.npmrc";
     Write-Host "    ✅ .npmrc" -ForegroundColor Green;
 
-    # TODO:
-    # $ueliConfig = "$ENV:APPDATA/ueli/config.json";
-    # Remove-Item $ueliConfig -Force;
-    # # Note: Ueli doesn't seem to handle symlinks well, so we move the whole config file
-    # Copy-Item -Path "$PWD/windows/ueli.json" -Destination $ueliConfig -Force;
-    # Write-Host "    ✅ Ueli" -ForegroundColor Green;
-
     $translucenTbConfig = "$ENV:APPDATA/TranslucentTB/config.cfg";
     Remove-Item $translucenTbConfig -Force;
     New-Item -ItemType SymbolicLink -Path $translucenTbConfig -Target "$PWD/translucent-tb.cfg";
@@ -205,11 +198,6 @@ function CreateConfigsSymlink {
     Remove-Item $notepadplusplusConfig -Force;
     New-Item -ItemType SymbolicLink -Path $notepadplusplusConfig -Target "$PWD/windows/notepad++/config.xml";
     Write-Host "    ✅ Notepad++" -ForegroundColor Green;
-
-    $trafficMonitorConfig = "$ENV:APPDATA/TrafficMonitor/config.ini";
-    Remove-Item $trafficMonitorConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $trafficMonitorConfig -Target "$PWD/windows/traffic-monitor.ini";
-    Write-Host "    ✅ Traffic Monitor" -ForegroundColor Green;
 
     $starShipConfig = "$HOME/.config/starship.toml";
     Remove-Item $starShipConfig -Force;
