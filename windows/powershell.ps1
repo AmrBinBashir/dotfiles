@@ -3,7 +3,7 @@ using namespace Microsoft.PowerShell;
 #region Imports
 Import-Module posh-git
 Import-Module Terminal-Icons
-Import-Module 'C:\Users\amrba\AppData\Roaming\vcpkg\scripts\posh-vcpkg'
+Import-Module 'C:\Users\amrba\AppData\Local\vcpkg\scripts\posh-vcpkg'
 Invoke-Expression (&starship init powershell)
 #endregion
 

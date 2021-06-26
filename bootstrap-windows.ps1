@@ -1,5 +1,3 @@
-################# Definitions #########################
-
 function RefreshEnvs {
     $ENV:path = [System.ENVironment]::GetENVironmentVariable("Path", "Machine") + ";" + [System.ENVironment]::GetENVironmentVariable("Path", "User")
 }
@@ -13,11 +11,16 @@ function InstallApps {
         RefreshEnvs;
     }
 
+    # git is required for buckets
+    scoop install git --global;
+    Write-Host "    ✅ git" -ForegroundColor Green;
+    RefreshEnvs;
+
     scoop bucket add spotify "https://github.com/TheRandomLabs/Scoop-Spotify.git";
     scoop bucket add nerd-fonts;
     scoop bucket add extras;
 
-    scoop install vcredist;
+    scoop install vcredist --global;
     Write-Host "    ✅ VCRedist" -ForegroundColor Green;
 
     scoop install starship;
@@ -35,56 +38,8 @@ function InstallApps {
     scoop install spicetify-cli;
     Write-Host "    ✅ spicetify-cli" -ForegroundColor Green;
 
-    scoop install genius-spicetify;
-    Write-Host "    ✅ genius-spicetify" -ForegroundColor Green;
-
-    scoop install git --global;
-    Write-Host "    ✅ git" -ForegroundColor Green;
-    RefreshEnvs;
-
-    scoop install vscode --global;
-    Write-Host "    ✅ Visual Studio Code" -ForegroundColor Green;
-
-    scoop install neovim --global;
-    Write-Host "    ✅ Neovim" -ForegroundColor Green;
-
     scoop install windows-terminal --global;
     Write-Host "    ✅ Windows Terminal" -ForegroundColor Green;
-
-    scoop install nvm --global;
-    Write-Host "    ✅ NodeJS Version Manager (nvm)" -ForegroundColor Green;
-    RefreshEnvs;
-
-    nvm install latest;
-    Write-Host "    ✅ NodeJS Latest" -ForegroundColor Green;
-
-    scoop install rust --global;
-    Write-Host "    ✅ Rust" -ForegroundColor Green;
-
-    scoop install python --global;
-    Write-Host "    ✅ Python" -ForegroundColor Green;
-
-    scoop install nuget --global;
-    Write-Host "    ✅ NuGet" -ForegroundColor Green;
-
-    git clone "https://github.com/microsoft/vcpkg" "$ENV:LOCALAPPDATA/vcpkg";
-    &"$ENV:LOCALAPPDATA/vcpkg/bootstrap-vcpkg.bat" -disableMetrics
-    Write-Host "    ✅ vcpkg" -ForegroundColor Green;
-
-    scoop install yarn --global;
-    Write-Host "    ✅ Yarn" -ForegroundColor Green;
-
-    (Invoke-WebRequest 'https://pnpm.js.org/pnpm.js' -UseBasicParsing).Content | node - add --global pnpm
-    Write-Host "    ✅ pnpm" -ForegroundColor Green;
-
-    scoop install notepadplusplus;
-    Write-Host "    ✅ Notepad++" -ForegroundColor Green;
-
-    scoop install vivaldi --global;
-    Write-Host "    ✅ Vivaldi" -ForegroundColor Green;
-
-    scoop install discord --global;
-    Write-Host "    ✅ Discord" -ForegroundColor Green;
 
     scoop install autohotkey;
     Write-Host "    ✅ AutoHotKey" -ForegroundColor Green;
@@ -98,20 +53,11 @@ function InstallApps {
     scoop install vlc --global;
     Write-Host "    ✅ VLC" -ForegroundColor Green;
 
-    scoop install winrar --global;
-    Write-Host "    ✅ WinRAR" -ForegroundColor Green;
-
     scoop install rainmeter;
     Write-Host "    ✅ Rainmeter" -ForegroundColor Green;
 
     scoop install everything --global;
     Write-Host "    ✅ Everything" -ForegroundColor Green;
-
-    scoop install hwinfo --global;
-    Write-Host "    ✅ HWInfo" -ForegroundColor Green;
-
-    scoop install translucenttb;
-    Write-Host "    ✅ TranslucenTb" -ForegroundColor Green;
 
     scoop install taskbarx;
     Write-Host "    ✅ TaskbarX" -ForegroundColor Green;
@@ -119,12 +65,45 @@ function InstallApps {
     scoop install trafficmonitor;
     Write-Host "    ✅ TrafficMonitor" -ForegroundColor Green;
 
-    scoop install 7zip;
+    scoop install instant-eyedropper;
+    Write-Host "    ✅ Instant Eyedropper" -ForegroundColor Green;
+
+    scoop install 7zip --global;
     Write-Host "    ✅ 7-Zip" -ForegroundColor Green;
 
-    scoop install steam --global;
-    Write-Host "    ✅ Steam" -ForegroundColor Green;
+    scoop install neovim;
+    Write-Host "    ✅ Neovim" -ForegroundColor Green;
+
+    scoop install nvm;
+    Write-Host "    ✅ NodeJS Version Manager (nvm)" -ForegroundColor Green;
+    RefreshEnvs;
+
+    nvm install latest;
+    nvm use $(nvm list);
+    Write-Host "    ✅ NodeJS Latest" -ForegroundColor Green;
+    RefreshEnvs;
+
+    git clone "https://github.com/microsoft/vcpkg" "$ENV:LOCALAPPDATA/vcpkg";
+    &"$ENV:LOCALAPPDATA/vcpkg/bootstrap-vcpkg.bat" -disableMetrics
+    Write-Host "    ✅ vcpkg" -ForegroundColor Green;
+
+    scoop install yarn;
+    Write-Host "    ✅ Yarn" -ForegroundColor Green;
+
+    npm install -g pnpm
+    Write-Host "    ✅ pnpm" -ForegroundColor Green;
+
+    #######
+    # 1. rustup
+    # 2. vscode
+    # 3. steam
+    # 4. ueli
+    # 5. modern flyouts
+    # 6. vivaldi
+    # 7. cmake
+
 }
+
 
 function InstallFonts {
     Write-Host "- Installing Fonts..." -ForegroundColor Cyan;
@@ -134,7 +113,7 @@ function InstallFonts {
     Write-Host "    ✅ FiraCode" -ForegroundColor Green;
 
     scoop install FiraCode-NF --global;
-    Write-Host "    ✅ FiraCode-NF" --global; -ForegroundColor Green;
+    Write-Host "    ✅ FiraCode-NF" -ForegroundColor Green;
 
 }
 
@@ -159,74 +138,44 @@ function InstallPowerShellModules {
 function CreateConfigsSymlink {
     Write-Host "- Creating symlinks for config files..." -ForegroundColor Cyan;
 
-    $normalPowershellProfilePath = "$HOME/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1";
-    Remove-Item $normalPowershellProfilePath -Force;
-    New-Item -ItemType SymbolicLink -Path "$normalPowershellProfilePath" -Target "$PWD/windows/powershell.ps1";
-    $powershellCoreProfilePath = "$HOME/Documents/PowerShell/Microsoft.PowerShell_profile.ps1";
-    Remove-Item $powershellCoreProfilePath -Force;
-    New-Item -ItemType SymbolicLink -Path "$powershellCoreProfilePath" -Target "$PWD/windows/powershell.ps1";
-    Copy-Item -Path "$HOME/Documents/PowerShell/Modules/*" -Destination "$HOME/Documents/WindowsPowerShell/Modules" -Recurse -Force;
-    Write-Host "    ✅ Powershell" -ForegroundColor Green;
+    @(
+        [PSCustomObject]@{destFolder = "$HOME\Documents\WindowsPowerShell\"; destFile = "Microsoft.PowerShell_profile.ps1"; file = "$PWD/windows/powershell.ps1" },
+        [PSCustomObject]@{destFolder = "$HOME\Documents\PowerShell\"; destFile = "Microsoft.PowerShell_profile.ps1"; file = "$PWD/windows/powershell.ps1" },
+        [PSCustomObject]@{destFolder = "$Env:LOCALAPPDATA\Microsoft\Windows Terminal\"; destFile = "settings.json"; file = "$PWD/windows/windows-terminal.json" },
+        [PSCustomObject]@{destFolder = "$HOME\.spicetify\"; destFile = "config-xpui.ini"; file = "$PWD/windows/spicetify-cli.ini" },
+        [PSCustomObject]@{destFolder = "$HOME\.config\"; destFile = "starship.toml"; file = "$PWD/shared/starship.toml" },
+        [PSCustomObject]@{destFolder = "$HOME\"; destFile = ".gitconfig"; file = "$PWD/shared/.gitconfig" },
+        [PSCustomObject]@{destFolder = "$Env:LOCALAPPDATA\nvim\"; destFile = "init.vim"; file = "$PWD/shared/neovim.vim" }
+    ) | ForEach-Object {
+        if ($_.destFolder -ne $HOME) {
+            New-Item -Path $_.destFolder -ItemType Directory -Force;
+        }
 
-    $windowsTerminalSettings = "$ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json";
-    Remove-Item $windowsTerminalSettings -Force;
-    New-Item -ItemType SymbolicLink -Path $windowsTerminalSettings -Target "$PWD/windows/windows-terminal.json";
-    Write-Host "    ✅ Windows Terminal" -ForegroundColor Green;
+        $dest = $_.destFolder + $_.destFile;
+        Remove-Item -Path $dest  -Force;
+        New-Item -ItemType SymbolicLink -Path $dest -Target $_.file;
+        Write-Host "    ✅ $($_.file)" -ForegroundColor Green;
 
-    $spicetifyConfig = "$HOME/.spicetify/config-xpui.ini";
-    Remove-Item $spicetifyConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $spicetifyConfig -Target "$PWD/windows/spicetify-cli.ini";
-    Write-Host "    ✅ Spicetify" -ForegroundColor Green;
+    };
 
-    $gitConfig = "$HOME/.gitconfig";
-    Remove-Item $gitConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $gitConfig -Target "$PWD/shared/.gitconfig";
-    Write-Host "    ✅ .gitconfig" -ForegroundColor Green;
-
-    $npmrc = "$HOME/.npmrc";
-    Remove-Item $npmrc -Force;
-    New-Item -ItemType SymbolicLink -Path $npmrc -Target "$PWD/windows/.npmrc";
-    Write-Host "    ✅ .npmrc" -ForegroundColor Green;
-
-    $translucenTbConfig = "$ENV:APPDATA/TranslucentTB/config.cfg";
-    Remove-Item $translucenTbConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $translucenTbConfig -Target "$PWD/translucent-tb.cfg";
-    Write-Host "    ✅ TranslucentTB" -ForegroundColor Green;
-
-    Copy-Item -Path "$PWD/windows/notepad++/themes/*" -Destination "$ENV:APPDATA/Notepad++/themes" -Recurse -Force;
-    $notepadplusplusConfig = "$ENV:APPDATA/Notepad++/config.xml";
-    Remove-Item $notepadplusplusConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $notepadplusplusConfig -Target "$PWD/windows/notepad++/config.xml";
-    Write-Host "    ✅ Notepad++" -ForegroundColor Green;
-
-    $starShipConfig = "$HOME/.config/starship.toml";
-    Remove-Item $starShipConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $starShipConfig -Target "$PWD/shared/starship.toml";
-    Write-Host "    ✅ Starship" -ForegroundColor Green;
-
-    $nvimConfig = "$ENV:LOCALAPPDATA/nvim/init.vim";
-    Remove-Item $nvimConfig -Force;
-    New-Item -ItemType SymbolicLink -Path $nvimConfig -Target "$PWD/shared/neovim.vim";
-    Write-Host "    ✅ Neovim" -ForegroundColor Green;
 }
 
-
-################# Execution #########################
+########
 
 if ($PSVersionTable.PSEdition -ne "Core") {
-    Write-Host "❌ Install Powershell Core first and then run this from it." -ForegroundColor Red;
+    Write-Host "❌ Install Powershell Core first then use it to run the script." -ForegroundColor Red;
     exit;
 }
 
-#Requires -RunAsAdministrator
+# Requires -RunAsAdministrator
 
 $ErrorActionPreference = "SlientlyContinue";
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser;
-Write-Host "✅ Execution Policy is now set to RemoteSigned." -ForegroundColor Green;
+# Set-ExecutionPolicy Bypass -Scope CurrentUser;
+# Write-Host "✅ Execution Policy is now set to Bypass." -ForegroundColor Green;
 
-[void](InstallApps);
-[void](InstallFonts);
-[void](InstallPowerShellModules);
+# [void](InstallApps);
+# [void](InstallFonts);
+# [void](InstallPowerShellModules);
 [void](CreateConfigsSymlink);
 

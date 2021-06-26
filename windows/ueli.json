@@ -94,7 +94,7 @@
   "everythingSearchOptions": {
     "enabled": true,
     "maxSearchResults": 24,
-    "pathToEs": "C:\\Program Files\\Everything\\es.exe",
+    "pathToEs": "C:\\ProgramData\\scoop\\apps\\everything\\current\\es.exe",
     "prefix": " "
   },
   "fileBrowserOptions": {
@@ -204,18 +204,6 @@
           "Directory"
         ],
         "type": "File path"
-      },
-      {
-        "description": "",
-        "executionArgument": "powershell -NoProfile -Command \"Start-Process powershell -Verb runas -WindowStyle hidden -ArgumentList '-NoProfile', '-Command', 'Stop-Service Shibari.Dom.Server;Start-Service Shibari.Dom.Server'\"",
-        "icon": {
-          "parameter": "",
-          "type": "URL"
-        },
-        "name": "Restart Shibari",
-        "needsUserConfirmationBeforeExecution": false,
-        "tags": [],
-        "type": "Commandline tool"
       },
       {
         "description": "",
